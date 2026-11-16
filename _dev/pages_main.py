@@ -20,7 +20,7 @@ def home():
     path = "index.html"
     prod_cards = "".join(f"""<a class="card reveal reveal-d{i % 3}" href="{s}">
         {media(f"assets/images/products/{img}.jpg", t)}
-        <div class="card-body"><span class="card-num">0{i+1}</span><h3>{t}</h3><p>{d}</p><span class="card-link">Explore {I['arrow']}</span></div>
+        <div class="card-body"><h3>{t}</h3><p>{d}</p><span class="card-link">Explore {I['arrow']}</span></div>
       </a>""" for i, (s, t, d, ic, img) in enumerate(PRODUCTS))
     feats = [
       ("feather", "Light Weight", "As a composite, FRP offers a strength-to-weight ratio far higher than metals, so it is easier to transport, lift and install."),
@@ -45,17 +45,17 @@ def home():
     <img src="assets/images/hero/home-hero.jpg" alt="" fetchpriority="high" style="z-index:-1" onerror="this.remove()">
   </div>
   <div class="container">
-    <div class="hero-badges">
-      <span class="badge">{I['award']} ISO 9001 Certified</span>
-      <span class="badge">{I['shield']} Since 1994</span>
-      <span class="badge">{I['pin']} SIPCOT, Pudukkottai</span>
-    </div>
     <h1>Mission against <em>corrosion</em></h1>
     <p class="lead">The widest range of composite (FRP) and dual-laminate thermoplastic tanks, piping, scrubbers and process equipment. We handle it turnkey, from design and specification through fabrication, delivery and installation.</p>
     <div class="btn-row">
       <a class="btn btn--primary" href="contact.html">Request a Quote {I['arrow']}</a>
       <a class="btn btn--ghost" href="#products">Explore Products</a>
     </div>
+    <ul class="hero-trust" aria-label="Credentials">
+      <li>{I['award']}<span><strong>ISO 9001</strong> Certified</span></li>
+      <li>{I['shield']}<span><strong>Since 1994</strong> 30+ years</span></li>
+      <li>{I['pin']}<span><strong>SIPCOT</strong> Pudukkottai, TN</span></li>
+    </ul>
     <div class="hero-stats">
       <div><strong>{30}+</strong><span>Years of FRP expertise</span></div>
       <div><strong>1–300<small style="font-size:.5em"> m³</small></strong><span>Tank capacity range</span></div>

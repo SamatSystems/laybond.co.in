@@ -878,3 +878,18 @@ html, body { max-width: 100%; overflow-x: clip; }
 .site-footer .footer-tag span { color: #64b5f6; }
 .site-footer .footer-contact svg, .site-footer .iso-badge svg { color: #64b5f6; }
 .site-footer a:hover { color: #90caf9; }
+
+/* Hero trust line (ISO · Since 1994 · SIPCOT) – sits under the buttons */
+.hero-trust { list-style: none; margin: 26px 0 0; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 0; }
+.hero-trust li { display: flex; align-items: center; gap: 10px; padding: 0 22px; border-left: 1px solid rgba(13,43,79,.18); }
+.hero-trust li:first-child { padding-left: 0; border-left: 0; }
+.hero-trust svg { width: 28px; height: 28px; flex: none; color: var(--brand); background: #fff; border: 1px solid var(--sky-200); border-radius: 50%; padding: 6px; box-shadow: 0 2px 8px rgba(13,43,79,.08); }
+.hero-trust span { display: flex; flex-direction: column; line-height: 1.2; font-size: .78rem; color: #4f6b8a; }
+.hero-trust strong { font-size: .92rem; color: var(--ink); font-weight: 700; }
+.page-index .hero .lead { margin-bottom: 22px; }
+.page-index .hero-trust { margin-top: 22px; }
+@media (max-width: 600px) {
+  .hero-trust { gap: 14px; justify-content: space-between; }
+  .hero-trust li { padding: 0; border-left: 0; flex-direction: column; text-align: center; gap: 6px; flex: 1; }
+  .hero-trust span { align-items: center; }
+}
