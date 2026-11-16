@@ -198,13 +198,13 @@ def scrubbers():
 <section class="section section--darker">
   <div class="container">
     <div class="section-head"><span class="eyebrow">Performance</span><h2>Scrubber specifications</h2></div>
-    <dl class="spec-list reveal" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.08)">
-      <div style="background:var(--navy-900)"><dt style="color:var(--steel-500)">Gas handling capacity</dt><dd style="color:#fff">1,500 – 70,000 cfm</dd></div>
-      <div style="background:var(--navy-900)"><dt style="color:var(--steel-500)">Pressure drop</dt><dd style="color:#fff">5″ – 9″ w.c.</dd></div>
-      <div style="background:var(--navy-900)"><dt style="color:var(--steel-500)">Particulate removal (≥ 2 µm)</dt><dd style="color:#fff">97% – 99.9%+</dd></div>
-      <div style="background:var(--navy-900)"><dt style="color:var(--steel-500)">Soluble gas removal</dt><dd style="color:#fff">Up to 98%</dd></div>
-      <div style="background:var(--navy-900)"><dt style="color:var(--steel-500)">Duct / stack diameter</dt><dd style="color:#fff">Up to 2,000 mm+</dd></div>
-      <div style="background:var(--navy-900)"><dt style="color:var(--steel-500)">Construction</dt><dd style="color:#fff">FRP · PVC · CPVC · PP</dd></div>
+    <dl class="spec-list reveal">
+      <div><dt>Gas handling capacity</dt><dd>1,500 – 70,000 cfm</dd></div>
+      <div><dt>Pressure drop</dt><dd>5″ – 9″ w.c.</dd></div>
+      <div><dt>Particulate removal (≥ 2 µm)</dt><dd>97% – 99.9%+</dd></div>
+      <div><dt>Soluble gas removal</dt><dd>Up to 98%</dd></div>
+      <div><dt>Duct / stack diameter</dt><dd>Up to 2,000 mm+</dd></div>
+      <div><dt>Construction</dt><dd>FRP · PVC · CPVC · PP</dd></div>
     </dl>
   </div>
 </section>

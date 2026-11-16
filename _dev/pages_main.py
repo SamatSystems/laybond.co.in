@@ -292,7 +292,7 @@ def gallery():
 def contact():
     path = "contact.html"
     opts = "".join(f'<option value="{t}">{t}</option>' for _, t, *_ in PRODUCTS)
-    html = head("Contact Laybond | Get a Quote for FRP Tanks, Piping & Scrubbers", "Contact Laybond Pipings & Equipments, 14-B SIPCOT Industrial Complex, Pudukkottai. Call +91 94431 69842 or email sales@laybond.co.in for a quote.", path)
+    html = head("Contact Laybond | Get a Quote for FRP Tanks, Piping & Scrubbers", "Contact Laybond Pipings & Equipments, 14-B SIPCOT Industrial Complex, Pudukkottai. Call +91 98400 32218 or email sales@laybond.co.in for a quote.", path)
     html += header(path)
     html += page_hero("Let's talk", "Send us your requirement (chemical, concentration, temperature, capacity) and our engineers will respond with a solution and quote.",
                       [("Contact", None)], "assets/images/hero/contact-hero.jpg", "Contact hero", "Contact &amp; quotes")
@@ -320,13 +320,13 @@ def contact():
           <div><button class="btn btn--primary" type="submit">Send enquiry {I['arrow']}</button></div>
         </form>
       </div>
-      <div class="reveal reveal-d1" style="background:var(--navy-900);border-radius:var(--radius-lg);padding:clamp(24px,4vw,44px);color:var(--steel-100)">
-        <h2 style="font-size:2rem;color:#fff">Head office &amp; works</h2>
+      <div class="reveal reveal-d1 contact-card">
+        <h2 style="font-size:2rem">Head office &amp; works</h2>
         <div class="contact-item"><span class="contact-icon">{I['pin']}</span><div><h4>Address</h4><address>{ADDRESS_HTML}</address></div></div>
-        <div class="contact-item"><span class="contact-icon">{I['phone']}</span><div><h4>Phone</h4><a href="tel:{PHONE1_RAW}">{PHONE1}</a><a href="tel:{PHONE2_RAW}">{PHONE2}</a></div></div>
+        <div class="contact-item"><span class="contact-icon">{I['phone']}</span><div><h4>Phone</h4><a href="tel:{PHONE1_RAW}">{PHONE1}</a></div></div>
         <div class="contact-item"><span class="contact-icon">{I['mail']}</span><div><h4>Email</h4><a href="mailto:{EMAIL1}">{EMAIL1}</a><a href="mailto:{EMAIL2}">{EMAIL2}</a></div></div>
         <div class="contact-item"><span class="contact-icon">{I['wa']}</span><div><h4>WhatsApp</h4><a href="{WA}your%20requirement" target="_blank" rel="noopener">Chat with us on WhatsApp</a></div></div>
-        <div class="contact-item"><span class="contact-icon">{I['clock']}</span><div><h4>Working hours</h4><span style="color:#fff">Mon – Sat, 9:00 AM – 6:00 PM</span></div></div>
+        <div class="contact-item"><span class="contact-icon">{I['clock']}</span><div><h4>Working hours</h4><span class="contact-text">Mon – Sat, 9:00 AM – 6:00 PM</span></div></div>
       </div>
     </div>
   </div>

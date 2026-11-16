@@ -216,7 +216,7 @@
         })
         .catch(function () {
           status.className = "form-status is-error";
-          status.textContent = "Could not send right now. Please call +91 94431 69842 or email sales@laybond.co.in.";
+          status.textContent = "Could not send right now. Please call +91 98400 32218 or email sales@laybond.co.in.";
         })
         .finally(function () { btn.disabled = false; btn.innerHTML = label; if (started) started.value = Date.now() - 10000; });
     });

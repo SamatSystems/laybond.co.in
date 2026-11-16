@@ -72,4 +72,4 @@ $headers[] = 'X-Mailer: PHP/' . phpversion();
 $subject = '=?UTF-8?B?' . base64_encode($SUBJECT . ($product ? " ($product)" : '')) . '?=';
 $sent = @mail($TO_EMAIL, $subject, $body, implode("\r\n", $headers), '-f' . $FROM_EMAIL);
 
-respond($sent, $sent ? '' : 'Sorry, the message could not be sent. Please call +91 94431 69842 or email sales@laybond.co.in.');
+respond($sent, $sent ? '' : 'Sorry, the message could not be sent. Please call +91 98400 32218 or email sales@laybond.co.in.');

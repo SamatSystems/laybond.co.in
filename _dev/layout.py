@@ -1,13 +1,11 @@
 """Shared layout pieces for generating the Laybond static site."""
 
 SITE = "https://laybond.co.in"
-PHONE1 = "+91 94431 69842"
-PHONE1_RAW = "+919443169842"
-PHONE2 = "+91 98400 32218"
-PHONE2_RAW = "+919840032218"
+PHONE1 = "+91 98400 32218"
+PHONE1_RAW = "+919840032218"
 EMAIL1 = "sales@laybond.co.in"
 EMAIL2 = "laybond@gmail.com"
-WA = "https://wa.me/919443169842?text=Hello%20Laybond%2C%20I%20would%20like%20a%20quote%20for%20"
+WA = "https://wa.me/919840032218?text=Hello%20Laybond%2C%20I%20would%20like%20a%20quote%20for%20"
 ADDRESS_HTML = "14-B, SIPCOT Industrial Complex,<br>Pudukkottai – 622 002,<br>Tamil Nadu, India"
 
 I = {
@@ -98,7 +96,7 @@ def head(title, desc, path, og_image="assets/images/hero/home-hero.jpg"):
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Organization","name":"Laybond Pipings & Equipments","alternateName":"Laybond","url":"{SITE}/","logo":"{SITE}/assets/images/logo/Laybond2.png","foundingDate":"1994","slogan":"Mission Against Corrosion","email":"{EMAIL1}","telephone":"{PHONE1_RAW}","address":{{"@type":"PostalAddress","streetAddress":"14-B, SIPCOT Industrial Complex","addressLocality":"Pudukkottai","postalCode":"622002","addressRegion":"Tamil Nadu","addressCountry":"IN"}},"contactPoint":[{{"@type":"ContactPoint","telephone":"{PHONE1_RAW}","contactType":"sales","areaServed":"IN"}},{{"@type":"ContactPoint","telephone":"{PHONE2_RAW}","contactType":"sales","areaServed":"IN"}}]}}
+{{"@context":"https://schema.org","@type":"Organization","name":"Laybond Pipings & Equipments","alternateName":"Laybond","url":"{SITE}/","logo":"{SITE}/assets/images/logo/Laybond2.png","foundingDate":"1994","slogan":"Mission Against Corrosion","email":"{EMAIL1}","telephone":"{PHONE1_RAW}","address":{{"@type":"PostalAddress","streetAddress":"14-B, SIPCOT Industrial Complex","addressLocality":"Pudukkottai","postalCode":"622002","addressRegion":"Tamil Nadu","addressCountry":"IN"}},"contactPoint":[{{"@type":"ContactPoint","telephone":"{PHONE1_RAW}","contactType":"sales","areaServed":"IN"}}]}}
 </script>
 </head>
 """
@@ -194,7 +192,7 @@ def footer(extra_scripts=""):
         <h4>Head Office</h4>
         <ul class="footer-contact">
           <li>{I['pin']}<address>{ADDRESS_HTML}</address></li>
-          <li>{I['phone']}<span><a href="tel:{PHONE1_RAW}">{PHONE1}</a><br><a href="tel:{PHONE2_RAW}">{PHONE2}</a></span></li>
+          <li>{I['phone']}<span><a href="tel:{PHONE1_RAW}">{PHONE1}</a></span></li>
           <li>{I['mail']}<span><a href="mailto:{EMAIL1}">{EMAIL1}</a><br><a href="mailto:{EMAIL2}">{EMAIL2}</a></span></li>
         </ul>
       </div>
