@@ -198,7 +198,7 @@ def footer(extra_scripts=""):
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span data-year>2026</span> Laybond Pipings &amp; Equipments. All rights reserved.</span>
+      <span>© <span data-year>2026</span> Laybond Pipings &amp; Equipments. All rights reserved. Powered by <strong>Samat Systems</strong></span>
       <span><a href="warranty.html">Warranty</a> · <a href="sitemap.xml">Sitemap</a></span>
     </div>
   </div>
