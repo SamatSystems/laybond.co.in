@@ -153,7 +153,7 @@ def home():
 {lightbox()}
 {cta()}
 """
-    html += footer('<script src="assets/js/gallery-data.js"></script>\n')
+    html += footer(f'<script src="assets/js/gallery-data.js?v={ver("assets/js/gallery-data.js")}"></script>\n')
     return html
 
 
@@ -285,7 +285,7 @@ def gallery():
 {lightbox()}
 {cta("Like what you see?", "We can build it for your plant too. Share your requirement and we will get back within one working day.")}
 """
-    html += footer('<script src="assets/js/gallery-data.js"></script>\n')
+    html += footer(f'<script src="assets/js/gallery-data.js?v={ver("assets/js/gallery-data.js")}"></script>\n')
     return html
 
 

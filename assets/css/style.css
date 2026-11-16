@@ -904,3 +904,24 @@ html, body { max-width: 100%; overflow-x: clip; }
 .footer-bottom { border-top-color: rgba(255,255,255,.2); color: #c9dcf3; }
 .footer-bottom a { color: #c9dcf3; }
 .footer-bottom strong { color: #fff; font-weight: 600; }
+/* Footer brand column: tighter spacing so the ISO badge lines up with the other columns */
+.footer-brand img { margin-bottom: 14px; }
+.footer-brand .footer-tag { margin-bottom: 8px; }
+.footer-brand p:not(.footer-tag) { margin-bottom: 0; }
+.footer-brand .iso-badge { margin-top: 14px; padding: 7px 14px; font-size: .82rem; gap: 8px; }
+.footer-brand .iso-badge svg { width: 18px; height: 18px; }
+/* Footer: put logo + 3 headings on one horizontal line, and bottom-align the ISO badge */
+.site-footer .footer-brand img { height: 46px; margin: 0 0 16px; }
+.site-footer h4 { height: 46px; display: flex; align-items: center; margin: 0 0 16px; }
+@media (min-width: 720px) {
+  .footer-grid { align-items: stretch; }
+  .footer-brand { display: flex; flex-direction: column; align-items: flex-start; }
+  .footer-brand .iso-badge { margin-top: auto; }
+  .footer-brand p:not(.footer-tag) { margin-bottom: 14px; }
+}
+/* Footer: less empty space above the logo/headings */
+.site-footer { padding-top: clamp(36px, 4vw, 52px); }
+.footer-bottom { margin-top: 36px; }
+/* Footer: ISO badge directly under the description (not pinned to the bottom) */
+.footer-brand .iso-badge { margin-top: 0 !important; }
+.footer-brand p:not(.footer-tag) { margin-bottom: 14px !important; }

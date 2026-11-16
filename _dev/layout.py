@@ -1,4 +1,14 @@
 """Shared layout pieces for generating the Laybond static site."""
+import hashlib as _hl, os as _os
+_ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+def ver(rel):
+    """Short content hash so browsers re-download a file whenever it changes."""
+    try:
+        with open(_os.path.join(_ROOT, rel), "rb") as f:
+            return _hl.md5(f.read()).hexdigest()[:8]
+    except OSError:
+        return "1"
+
 
 SITE = "https://laybond.co.in"
 PHONE1 = "+91 98400 32218"
@@ -53,6 +63,9 @@ I = {
  "award": '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13L17 22l-5-3-5 3 1.5-9"/></svg>',
 }
 
+# Default 24px size on every icon (CSS still sets the real size)
+I = {k: v.replace("<svg ", '<svg width="24" height="24" ', 1) for k, v in I.items()}
+
 PRODUCTS = [
   # slug, title, short, icon, image name
   ("chemical-handling-systems.html", "Acid Handling Systems", "Complete chemical storage & dosing systems, 1–300 m³", "acid", "acid-handling"),
@@ -94,7 +107,7 @@ def head(title, desc, path, og_image="assets/images/hero/home-hero.jpg"):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v={ver('assets/css/style.css')}">
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Organization","name":"Laybond Pipings & Equipments","alternateName":"Laybond","url":"{SITE}/","logo":"{SITE}/assets/images/logo/Laybond2.png","foundingDate":"1994","slogan":"Mission Against Corrosion","email":"{EMAIL1}","telephone":"{PHONE1_RAW}","address":{{"@type":"PostalAddress","streetAddress":"14-B, SIPCOT Industrial Complex","addressLocality":"Pudukkottai","postalCode":"622002","addressRegion":"Tamil Nadu","addressCountry":"IN"}},"contactPoint":[{{"@type":"ContactPoint","telephone":"{PHONE1_RAW}","contactType":"sales","areaServed":"IN"}}]}}
 </script>
@@ -208,7 +221,7 @@ def footer(extra_scripts=""):
   <a class="float-btn float-btn--call" href="tel:{PHONE1_RAW}" aria-label="Call Laybond">{I['phone']}</a>
   <a class="float-btn float-btn--wa" href="{WA}your%20requirement" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">{I['wa']}</a>
 </div>
-{extra_scripts}<script src="assets/js/main.js" defer></script>
+{extra_scripts}<script src="assets/js/main.js?v={ver('assets/js/main.js')}" defer></script>
 </body>
 </html>
 """
