@@ -925,3 +925,126 @@ html, body { max-width: 100%; overflow-x: clip; }
 /* Footer: ISO badge directly under the description (not pinned to the bottom) */
 .footer-brand .iso-badge { margin-top: 0 !important; }
 .footer-brand p:not(.footer-tag) { margin-bottom: 14px !important; }
+/* Outline buttons: hover fills with the same logo blue as the primary buttons */
+.hero .btn--ghost:hover, .cta-band .btn--ghost:hover, .not-found .btn--ghost:hover,
+.btn--outline:hover, .nav .mobile-cta .btn--ghost:hover {
+  background: var(--brand); border-color: var(--brand); color: #fff;
+  transform: translateY(-2px); box-shadow: 0 10px 24px rgba(21,101,192,.3);
+}
+
+/* ==========================================================================
+   HOME – credentials seal + floating capabilities card
+   ========================================================================== */
+/* Hero: more room above the headline and below the buttons for the overlapping card */
+.page-index .hero { padding: calc(var(--header-h) + 64px) 0 clamp(110px, 12vw, 150px); min-height: min(86svh, 720px); align-items: center; }
+
+/* Rotating certification seal */
+.hero-seal {
+  position: absolute; z-index: 3;
+  right: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  top: calc(var(--header-h) + 56px);
+  width: 210px; height: 210px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.97) 58%, rgba(255,255,255,.9) 100%);
+  box-shadow: 0 20px 50px rgba(13,43,79,.22), inset 0 0 0 1px rgba(21,101,192,.15);
+  display: grid; place-items: center;
+  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  animation: sealIn 1s var(--ease) .3s both;
+}
+.hero-seal::before { content: ""; position: absolute; inset: 14px; border-radius: 50%; border: 1.5px dashed rgba(21,101,192,.35); }
+.seal-ring { position: absolute; inset: 0; width: 100%; height: 100%; animation: sealSpin 28s linear infinite; }
+.seal-ring text { font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: .12em; fill: var(--brand); }
+.seal-core {
+  position: relative; width: 108px; height: 108px; border-radius: 50%;
+  background: linear-gradient(145deg, var(--brand-light), var(--brand) 45%, #0d47a1);
+  color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1;
+  box-shadow: 0 10px 24px rgba(21,101,192,.4), inset 0 2px 0 rgba(255,255,255,.25);
+}
+.seal-core svg { width: 22px; height: 22px; margin-bottom: 4px; opacity: .9; }
+.seal-core strong { font-family: var(--font-display); font-size: 2.3rem; font-weight: 700; }
+.seal-core small { font-family: var(--font-display); font-size: .78rem; letter-spacing: .22em; text-transform: uppercase; margin-top: 3px; opacity: .9; }
+@keyframes sealSpin { to { transform: rotate(360deg); } }
+@keyframes sealIn { from { opacity: 0; transform: scale(.7) rotate(-20deg); } to { opacity: 1; transform: none; } }
+.hero-seal:hover .seal-ring { animation-play-state: paused; }
+
+/* Floating capabilities card */
+.caps-float { position: relative; z-index: 5; margin-top: calc(-1 * clamp(70px, 8vw, 96px)); padding-bottom: 8px; }
+.cap-card {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: #fff; border-radius: 22px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(13,43,79,.14), 0 2px 6px rgba(13,43,79,.05);
+  border: 1px solid var(--sky-200); position: relative;
+}
+.cap-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--brand-light), var(--brand), #0d47a1); }
+.cap { display: flex; align-items: flex-start; gap: 16px; padding: 30px 26px 28px; position: relative; transition: background .3s; }
+.cap + .cap::before { content: ""; position: absolute; left: 0; top: 26px; bottom: 26px; width: 1px; background: var(--sky-200); }
+.cap:hover { background: var(--sky-50); }
+.cap-icon {
+  flex: none; width: 52px; height: 52px; border-radius: 15px; display: grid; place-items: center;
+  background: var(--sky-100); color: var(--brand); transition: background .3s, color .3s, transform .4s var(--ease);
+}
+.cap-icon svg { width: 26px; height: 26px; }
+.cap:hover .cap-icon { background: var(--brand); color: #fff; transform: translateY(-3px) rotate(-6deg); }
+.cap strong { display: flex; align-items: baseline; font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1; color: var(--ink); letter-spacing: .01em; }
+.cap strong em { font-style: normal; color: var(--brand); margin-left: 1px; }
+.cap strong small { font-size: .45em; color: var(--brand); margin-left: 4px; font-weight: 600; }
+.cap-label { display: block; margin-top: 8px; font-weight: 600; font-size: .95rem; color: var(--text); }
+.cap-sub { display: block; margin-top: 2px; font-size: .8rem; color: var(--text-muted); }
+
+@media (max-width: 1100px) {
+  .cap-card { grid-template-columns: repeat(2, 1fr); }
+  .cap:nth-child(3)::before { display: none; }
+  .cap:nth-child(n+3) { border-top: 1px solid var(--sky-200); }
+  .hero-seal { width: 170px; height: 170px; }
+  .seal-core { width: 88px; height: 88px; }
+  .seal-core strong { font-size: 1.9rem; }
+}
+@media (max-width: 960px) {
+  /* hide the seal where it would collide with the headline; credentials stay in the card subtitle + footer */
+  .hero-seal { width: 128px; height: 128px; top: calc(var(--header-h) + 18px); right: var(--gutter); }
+  .hero-seal::before { inset: 9px; }
+  .seal-ring text { font-size: 16px; }
+  .seal-core { width: 66px; height: 66px; }
+  .seal-core svg { width: 16px; height: 16px; margin-bottom: 2px; }
+  .seal-core strong { font-size: 1.4rem; }
+  .seal-core small { font-size: .58rem; }
+  .page-index .hero { padding-top: calc(var(--header-h) + 150px); }
+}
+@media (max-width: 600px) {
+  .page-index .hero { min-height: 0; padding-bottom: 96px; }
+  .cap { flex-direction: column; gap: 12px; padding: 22px 18px; }
+  .cap-icon { width: 44px; height: 44px; border-radius: 12px; }
+  .cap-icon svg { width: 22px; height: 22px; }
+  .cap strong { font-size: 1.85rem; }
+  .cap-label { font-size: .86rem; }
+  .cap-sub { font-size: .74rem; }
+}
+@media (prefers-reduced-motion: reduce) { .seal-ring { animation: none; } }
+/* Seal entrance never hides it (no opacity), so it is visible even if animations are skipped */
+@keyframes sealIn { from { transform: scale(.85) rotate(-25deg); } to { transform: none; } }
+/* Mobile: seal sits beside the headline instead of above it */
+@media (max-width: 960px) {
+  .page-index .hero { padding-top: calc(var(--header-h) + 40px); }
+  .hero-seal { top: calc(var(--header-h) + 26px); }
+}
+@media (max-width: 600px) {
+  .page-index .hero { padding-top: calc(var(--header-h) + 28px); }
+  .hero-seal { top: calc(var(--header-h) + 18px); width: 118px; height: 118px; }
+  .hero-seal::before { inset: 8px; }
+  .seal-core { width: 60px; height: 60px; }
+  .seal-core strong { font-size: 1.25rem; }
+  .page-index .hero h1 { max-width: 9ch; }
+  .page-index .hero .lead { margin-top: 6px; }
+  .cap-sub { line-height: 1.35; }
+}
+@media (max-width: 380px) {
+  .hero-seal { width: 104px; height: 104px; }
+  .seal-core { width: 54px; height: 54px; }
+  .seal-core strong { font-size: 1.1rem; }
+  .seal-core svg { display: none; }
+  .cap { padding: 18px 14px; }
+  .cap strong { font-size: 1.6rem; }
+}
+/* Tablets: stronger, even fade so hero text stays readable over the photo */
+@media (min-width: 701px) and (max-width: 1100px) {
+  .hero::before { background: linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.88) 55%, rgba(255,255,255,.55) 100%); }
+}

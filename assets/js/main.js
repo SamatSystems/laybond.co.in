@@ -3,6 +3,13 @@
   "use strict";
   document.documentElement.classList.remove("no-js");
 
+  /* ---- Years since founding (e.g. data-since="1994") – updates automatically every year ---- */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-since]"), function (el) {
+    var n = new Date().getFullYear() - parseInt(el.getAttribute("data-since"), 10);
+    el.textContent = n;
+    if (el.hasAttribute("data-count")) el.setAttribute("data-count", n);
+  });
+
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

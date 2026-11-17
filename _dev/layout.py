@@ -130,7 +130,6 @@ def header(path, solid=False):
     <a class="logo" href="index.html" aria-label="Laybond – home"><img src="assets/images/logo/laybond-logo-color@2x.png" alt="Laybond Composite Engineering" width="240" height="62"></a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <a href="index.html"{cur('index.html')}>Home</a>
-      <a href="about.html"{cur('about.html')}>About</a>
       <div class="nav-drop{' is-current' if in_products else ''}">
         <button type="button" aria-expanded="false" aria-haspopup="true">Products {I['chev']}</button>
         <div class="mega">{mega}</div>
@@ -138,6 +137,7 @@ def header(path, solid=False):
       <a href="industries.html"{cur('industries.html')}>Industries</a>
       <a href="technical.html"{cur('technical.html')}>Technical</a>
       <a href="gallery.html"{cur('gallery.html')}>Gallery</a>
+      <a href="about.html"{cur('about.html')}>About</a>
       <a href="contact.html"{cur('contact.html')}>Contact</a>
       <div class="mobile-cta">
         <a class="btn btn--primary" href="contact.html">Request a Quote {I['arrow']}</a>
@@ -145,7 +145,6 @@ def header(path, solid=False):
       </div>
     </nav>
     <div class="header-cta">
-      <a class="header-phone" href="tel:{PHONE1_RAW}">{I['phone']} {PHONE1}</a>
       <a class="btn btn--primary" href="contact.html">Get a Quote</a>
       <button class="menu-toggle" type="button" aria-label="Menu" aria-controls="site-nav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>

@@ -1,4 +1,6 @@
 from layout import *
+import datetime as _dt
+YEARS = _dt.date.today().year - 1994  # fallback; main.js recalculates in the browser
 
 INDUSTRIES = [
   ("bolt", "Power Stations", "DM plant acid/alkali storage, cooling-water treatment, scrubbers"),
@@ -51,19 +53,38 @@ def home():
       <a class="btn btn--primary" href="contact.html">Request a Quote {I['arrow']}</a>
       <a class="btn btn--ghost" href="#products">Explore Products</a>
     </div>
-    <ul class="hero-trust" aria-label="Credentials">
-      <li>{I['award']}<span><strong>ISO 9001</strong> Certified</span></li>
-      <li>{I['shield']}<span><strong>Since 1994</strong> 30+ years</span></li>
-      <li>{I['pin']}<span><strong>SIPCOT</strong> Pudukkottai, TN</span></li>
-    </ul>
-    <div class="hero-stats">
-      <div><strong>{30}+</strong><span>Years of FRP expertise</span></div>
-      <div><strong>1–300<small style="font-size:.5em"> m³</small></strong><span>Tank capacity range</span></div>
-      <div><strong>25–1500<small style="font-size:.5em"> mm</small></strong><span>FRP pipe diameters</span></div>
-      <div><strong>35+</strong><span>Years average service life</span></div>
-    </div>
+  </div>
+  <div class="hero-seal" role="img" aria-label="ISO 9001 certified, established 1994, SIPCOT Pudukkottai, Tamil Nadu">
+    <svg class="seal-ring" viewBox="0 0 200 200" aria-hidden="true">
+      <defs><path id="sealPath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+      <text><textPath href="#sealPath" textLength="498" lengthAdjust="spacing">ISO 9001 CERTIFIED &#8226; SINCE 1994 &#8226; SIPCOT &#183; TAMIL NADU &#8226;</textPath></text>
+    </svg>
+    <div class="seal-core">{I['award']}<strong><span data-since="1994">{YEARS}</span>+</strong><small>Years</small></div>
   </div>
   <span class="scroll-cue">Scroll</span>
+</section>
+
+<section class="caps-float" aria-label="Capabilities at a glance">
+  <div class="container">
+    <div class="cap-card reveal">
+      <div class="cap">
+        <span class="cap-icon">{I['clock']}</span>
+        <div><strong><span data-count="{YEARS}" data-since="1994">{YEARS}</span><em>+</em></strong><span class="cap-label">Years of FRP expertise</span><span class="cap-sub">Since 1994, Tamil Nadu</span></div>
+      </div>
+      <div class="cap">
+        <span class="cap-icon">{I['tank']}</span>
+        <div><strong>1&ndash;<span data-count="300">300</span><small>m³</small></strong><span class="cap-label">Tank capacity</span><span class="cap-sub">Shop-built up to 50 m³</span></div>
+      </div>
+      <div class="cap">
+        <span class="cap-icon">{I['pipe']}</span>
+        <div><strong>25&ndash;<span data-count="1500">1500</span><small>mm</small></strong><span class="cap-label">FRP pipe diameters</span><span class="cap-sub">With a full fittings range</span></div>
+      </div>
+      <div class="cap">
+        <span class="cap-icon">{I['shield']}</span>
+        <div><strong><span data-count="35">35</span><em>+</em></strong><span class="cap-label">Years service life</span><span class="cap-sub">Average, in chemical duty</span></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="section section--white">
@@ -180,7 +201,7 @@ def about():
     html = head("About Laybond | FRP Manufacturer Since 1994 – SIPCOT Pudukkottai",
                 "Founded in 1994, Laybond Pipings & Equipments manufactures FRP and dual-laminate tanks, piping and scrubbers from its ISO 9001 facility at SIPCOT, Pudukkottai.", path)
     html += header(path)
-    html += page_hero("About Laybond", "Three decades of composite engineering: designing, fabricating and installing corrosion-resistant equipment for India's process industries.",
+    html += page_hero("About Laybond", "Over three decades of composite engineering: designing, fabricating and installing corrosion-resistant equipment for India's process industries.",
                       [("About", None)], "assets/images/hero/about-hero.jpg", "About hero", "Since 1994")
     html += f"""<section class="section section--white">
   <div class="container">
